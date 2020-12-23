@@ -20,7 +20,7 @@ export const categoryModal = StyleSheet.create({
     alignItems: 'center',
   },
   categoryItemText: {
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: 'bold',
     color: 'white',
     marginLeft: 5,

@@ -6,15 +6,16 @@ import {
   TouchableOpacity,
   Animated,
 } from 'react-native';
+import {CountdownCircleTimer} from 'react-native-countdown-circle-timer';
 
 import {CategorySelectModal} from '../components';
-
 import {introPage} from './styles';
 
 const Intro = (props) => {
   const [modalFlag, setModalFlag] = useState(false);
   const startGame = (selectedCategory) => {
     console.log(selectedCategory);
+    setModalFlag(false);
   };
   return (
     <SafeAreaView style={{flex: 1}}>
@@ -22,6 +23,23 @@ const Intro = (props) => {
         <View style={introPage.container}>
           <Text style={introPage.bannerText}>TRIVIA</Text>
         </View>
+        <View style={{backgroundColor: '#3949ab', alignItems: 'center'}}>
+          <CountdownCircleTimer
+            isPlaying
+            duration={5}
+            colors={[
+              ['#004777', 0.4],
+              ['#F7B801', 0.4],
+              ['#A30000', 0.2],
+            ]}>
+            {({remainingTime, animatedColor}) => (
+              <Animated.Text style={{color: animatedColor}}>
+                {remainingTime}
+              </Animated.Text>
+            )}
+          </CountdownCircleTimer>
+        </View>
+
         <View style={introPage.container}>
           <TouchableOpacity
             style={introPage.buttonContainer}
