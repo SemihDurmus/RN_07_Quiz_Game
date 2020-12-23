@@ -12,3 +12,7 @@ yarn add axios
 react-native-countdown-circle-timer
 https://www.npmjs.com/package/react-native-countdown-circle-timer
 yarn add react-native-countdown-circle-timer
+
+MODAL
+https://www.npmjs.com/package/react-native-modal
+yarn add react-native-modal

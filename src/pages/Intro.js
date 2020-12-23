@@ -13,7 +13,14 @@ const Intro = (props) => {
   return (
     <SafeAreaView style={{flex: 1}}>
       <View style={{flex: 1}}>
-        <Text>Intro</Text>
+        <View style={introPage.container}>
+          <Text style={introPage.bannerText}>TRIVIA</Text>
+        </View>
+        <View style={introPage.container}>
+          <TouchableOpacity style={introPage.buttonContainer}>
+            <Text style={introPage.buttonText}>Start</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </SafeAreaView>
   );
