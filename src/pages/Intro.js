@@ -7,6 +7,8 @@ import {
   Animated,
 } from 'react-native';
 
+import {CategorySelectModal} from '../components';
+
 import {introPage} from './styles';
 
 const Intro = (props) => {
@@ -21,6 +23,8 @@ const Intro = (props) => {
             <Text style={introPage.buttonText}>Start</Text>
           </TouchableOpacity>
         </View>
+
+        <CategorySelectModal />
       </View>
     </SafeAreaView>
   );
