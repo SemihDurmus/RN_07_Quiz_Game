@@ -12,6 +12,10 @@ import {CategorySelectModal} from '../components';
 import {introPage} from './styles';
 
 const Intro = (props) => {
+  const [modalFlag, setModalFlag] = useState(false);
+  const startGame = (selectedCategory) => {
+    console.log(selectedCategory);
+  };
   return (
     <SafeAreaView style={{flex: 1}}>
       <View style={{flex: 1}}>
@@ -19,12 +23,20 @@ const Intro = (props) => {
           <Text style={introPage.bannerText}>TRIVIA</Text>
         </View>
         <View style={introPage.container}>
-          <TouchableOpacity style={introPage.buttonContainer}>
+          <TouchableOpacity
+            style={introPage.buttonContainer}
+            onPress={() => {
+              setModalFlag(true);
+            }}>
             <Text style={introPage.buttonText}>Start</Text>
           </TouchableOpacity>
         </View>
 
-        <CategorySelectModal />
+        <CategorySelectModal
+          visibility={modalFlag}
+          onClose={() => setModalFlag(false)}
+          onCategorySelect={startGame}
+        />
       </View>
     </SafeAreaView>
   );

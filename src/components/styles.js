@@ -62,6 +62,6 @@ export const questionItem = StyleSheet.create({
   buttonText: {
     fontSize: 40,
     color: 'white',
-    fontFamily: 'Pacifico-Regular',
+    //fontFamily: 'Pacifico-Regular',
   },
 });
