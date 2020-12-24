@@ -7,15 +7,27 @@ import {
   Animated,
 } from 'react-native';
 import {CountdownCircleTimer} from 'react-native-countdown-circle-timer';
+import axios from 'axios';
 
 import {CategorySelectModal} from '../components';
 import {introPage} from './styles';
 
 const Intro = (props) => {
+  const [counterFlag, setCounterFlag] = useState(false);
   const [modalFlag, setModalFlag] = useState(false);
+
   const startGame = (selectedCategory) => {
-    console.log(selectedCategory);
+    axios
+      .get('https://opentdb.com/api.php?', {
+        params: {
+          amount: 10,
+          category: selectedCategory.id,
+          type: 'boolean',
+        },
+      })
+      .then((res) => console.log(res));
     setModalFlag(false);
+    setCounterFlag(true);
   };
   return (
     <SafeAreaView style={{flex: 1}}>
@@ -25,15 +37,16 @@ const Intro = (props) => {
         </View>
         <View style={{backgroundColor: '#3949ab', alignItems: 'center'}}>
           <CountdownCircleTimer
-            isPlaying
+            isPlaying={counterFlag}
             duration={5}
+            size={150}
             colors={[
               ['#004777', 0.4],
               ['#F7B801', 0.4],
               ['#A30000', 0.2],
             ]}>
             {({remainingTime, animatedColor}) => (
-              <Animated.Text style={{color: animatedColor}}>
+              <Animated.Text style={{color: animatedColor, fontSize: 60}}>
                 {remainingTime}
               </Animated.Text>
             )}
